@@ -1,0 +1,9 @@
+.allbooks-container{
+  border: 2px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+}

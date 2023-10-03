@@ -1,0 +1,62 @@
+.details-container{
+  /* height: 150px; */
+  width: 50vw;
+  margin: 10px auto;
+  padding: 20px;
+  margin-bottom: calc(100vh - 250px);
+  background-color: rgb(184, 198, 165);
+  border-radius: 15px;
+}
+
+.product-overview{
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.product-description p{
+  font-size: 1.2em;
+}
+
+.product-overview img{
+  width: 250px;
+  border-radius: 15px;
+}
+
+.conditional-button button{
+  padding: 10px 30px;
+  background-color: rgba(127, 255, 212,0.5);
+  border: none;
+  border-radius: 5px;
+  margin: 0 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.conditional-button button:hover{
+  background-color: rgb(97, 221, 180);
+
+}
+
+.rewiew-form .field{
+  width: 70%;
+  margin-right: 15px;
+  height: 25px;
+}
+
+.rewiew-form .submit{
+  height: 25px;
+  padding: 5px 10px;
+  background-color: cadetblue;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+  .product-overview{
+    display:flex;
+    flex-direction: column;
+  }
+}

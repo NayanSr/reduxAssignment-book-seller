@@ -1,0 +1,13 @@
+.footer{
+  position:sticky;
+  top: 0;
+  background-color: rgb(44, 49, 49);
+  /* width: 95%; */
+  height: 40px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.footer h3{
+  margin: 0;
+}
