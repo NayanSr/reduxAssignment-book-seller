@@ -411,6 +411,10 @@ app.post("/comment/:id", async (req, res) => {
 });
 */
 
+//! ************************ ----------Async Thunk(firebase-authentication)----------- *************************
+
+//? Redux> user> userSlice.js    Video_05
+
 //! ******************** others ***********************
 //! should be note :
 //? 01. loader to load data from Router.jsx

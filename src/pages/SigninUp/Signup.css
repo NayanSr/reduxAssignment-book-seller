@@ -1,0 +1,12 @@
+.signin-container{
+  background-color: rgb(221, 180, 104);
+  width: 55%;
+  margin: 10px auto;
+  padding: 15px 20px;
+}
+
+.signin-container input{
+  display: flex;
+  width: 80%;
+  height: 1.5em;
+}

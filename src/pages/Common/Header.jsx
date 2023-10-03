@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../images/navLogo2.jpg";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const user = { email: "nayan@gmail.com" };
-
+  // const user = { email: "nayan@gmail.com" };
+  // const user = null;
+  const { user } = useSelector((state) => state.user);
   return (
     <div className="header-container">
       <Link to="/">
