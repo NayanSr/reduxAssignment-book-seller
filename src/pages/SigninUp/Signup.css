@@ -3,6 +3,7 @@
   width: 55%;
   margin: 10px auto;
   padding: 15px 20px;
+  min-height: 78vh;
 }
 
 .signin-container input{

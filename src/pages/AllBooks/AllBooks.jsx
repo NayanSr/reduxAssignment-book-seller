@@ -6,7 +6,7 @@ const AllBooks = () => {
   // const books = useLoaderData();
   // eslint-disable-next-line no-unused-vars
   const { data: books, isLoading } = useGetBooksQuery();
-  console.log(isLoading);
+  // console.log(isLoading);
 
   return (
     <div className="allbooks-container">

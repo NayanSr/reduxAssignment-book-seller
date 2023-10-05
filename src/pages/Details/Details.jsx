@@ -1,20 +1,27 @@
+import { useSelector } from "react-redux";
 import {
+  useDeleteOneMutation,
   useGetOneBookQuery,
   usePostCommentMutation,
 } from "../../Redux/api/apiSlice";
 import "./Details.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Details = () => {
-  const user = { email: "n@gc.c" };
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.user);
+  // console.log(user.email);
+
   const { id } = useParams();
 
-  // const books = useLoaderData();
-  // const cb = books.find((book) => book.id == id);
   const { data: book, error } = useGetOneBookQuery(id);
+  const isMyBook = user.email === book?.email;
+
   const [postComment, { isLoading, isError, isSuccess }] =
     usePostCommentMutation();
-  console.log(isLoading, isError, isSuccess);
+
+  // console.log(isMyBook, book, isLoading, isError, isSuccess);
+
   const handleOnSubmit = (event) => {
     event.preventDefault();
     const inputValue = event.target.comment.value;
@@ -23,10 +30,20 @@ const Details = () => {
       data: { reviews: inputValue },
     };
     postComment(options);
-    console.log(options);
+    // console.log(options);
   };
 
-  console.log(book?.reviews, isLoading, error);
+  const [deleteOne] = useDeleteOneMutation();
+  const handleDeleteThisBook = (id) => {
+    const confirmed = confirm("Sure to delete !!");
+    if (confirmed) {
+      deleteOne(id);
+    }
+    navigate("/allBooks");
+    window.location.reload();
+  };
+
+  // console.log(book?.reviews, isLoading, error);
   return (
     <div className="details-container">
       <div className="product-overview">
@@ -37,12 +54,17 @@ const Details = () => {
         </div>
         <img src={book?.img} alt="" />
       </div>
-      {user?.email && (
+      {isMyBook && (
         <div className="conditional-button">
-          <Link to="/edit">
+          <Link to={`/updateBook/${id}`}>
             <button>Edit</button>
           </Link>
-          <button style={{ color: "red" }}>Delete</button>
+          <button
+            style={{ color: "red" }}
+            onClick={() => handleDeleteThisBook(id)}
+          >
+            Delete
+          </button>
         </div>
       )}
       <hr />

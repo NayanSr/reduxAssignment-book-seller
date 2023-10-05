@@ -1,23 +1,27 @@
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../Redux/user/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
-    // const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const data = { email: email, password: password };
     // console.log(name, email, password);
     dispatch(loginUser({ email, password }));
     console.log(data);
+    navigate("/");
+    form.reset();
   };
 
   return (
     <div className="signin-container">
+      <h3>Please Signin</h3>
       <form onSubmit={handleLogin}>
         <div className="form-control">
           <label className="label">

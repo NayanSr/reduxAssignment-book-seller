@@ -9,6 +9,7 @@ import { useEffect } from "react";
 
 const Layout = () => {
   const dispatch = useDispatch();
+  // const { isLoading } = useSelector((state) => state.user);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -20,13 +21,15 @@ const Layout = () => {
         dispatch(setLoading(false));
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
-      <Header />
-      <Outlet />
-      <Footer />
+      <>
+        <Header />
+        <Outlet />
+        <Footer />
+      </>
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.home-container{
+min-height: 86vh;
+box-sizing: border-box;
+  background-color: rgb(201, 201, 201);
+  padding: 50px;
+}
+.single-book-map {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 25px;
+}
